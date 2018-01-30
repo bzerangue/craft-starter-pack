@@ -1,0 +1,41 @@
+{# == Layout == #}
+{# Settings #}
+ {% set firstSegment = craft.request.firstSegment %}
+ {% set secondSegment = craft.request.getSegment(2) %}
+
+{% set assetVersion = '' %}
+{% set stylesheets = '/assets/stylesheets' %}
+{% set javascripts = '/assets/javascripts' %}
+
+{% set template = '' %}
+{% if firstSegment == '' %}
+	{% set template = 'home' %}
+{% else %}
+	{% set template = firstSegment %}
+{% endif %}
+
+{# Content #}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	{% include '_structure/head-assets' %}
+	{% include '_structure/seo' %}
+	{% include '_structure/app-icons' %}
+	
+</head>
+
+<body class="{{template}}">
+	
+	{% include '_structure/main-menu' %}
+	<main role="main" class="body-wrap">
+		{% block content %}{% endblock %}
+	</main>
+	{% include '_structure/main-footer' %}
+	{% include '_structure/footer-assets' %}
+
+</html>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{# == Macros == #}
+
+{# -- Examples: 
+
+{{utils.button(btnUrl, btnText, btnTarget, 'btn btn--expand')}}
+
+{{utils.sprite('close-remove', 'close-menu toggle-menu close-remove sprite')}}
+
+-- #}
+
+{# == Lazy Image == #}
+{% macro lazyImg(img,imgU,imgW,imgH,classes) %}
+	<img data-src="{{imgU}}" src="{{img.getUrl('lazy')}}" class="lazyload blur-up {{classes}}" width="{{imgH}}" height="{{imgH}}">
+{% endmacro %}
+
+{# == simple Image == #} 
+{% macro simpleImg(imgU,imgW,imgH,classes) %}
+	<img src="{{imgU}}" class="{{classes}}" width="{{imgH}}" height="{{imgH}}">
+{% endmacro %}
+
+
+
+{# == A Buttons == #}
+{% macro button(link, text, target, classes) %}
+    <a href="{{link}}" {% if classes %}class="{{classes}}"{% endif %} {% if target %}target="{{target}}"{% endif %}>{{text}}</a>
+{% endmacro %}
+
+
+
+{# == Sprite == #}
+{% macro sprite(id, classes) %}
+	<span class='sprite id-{{id}} {{classes}}'>
+	    <svg viewBox="0 0 1 1"><use xlink:href='{{images}}/icons-{{assetVersion}}.svg#{{assetVersion}}'></use></svg>
+	</span>
+{% endmacro %}

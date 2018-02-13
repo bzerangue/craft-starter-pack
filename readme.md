@@ -5,7 +5,7 @@
 - seomatic
 - hacksaw
 - sidebarenhancer
-- new
+- neo
 - minify
 - navee
 - fruitlinkit

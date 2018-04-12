@@ -1,0 +1,44 @@
+ {# == Layout == #}
+
+{# Macros #}
+{% import '_macros/forms' as forms %}
+{% import '_macros/stripe' as stripe %}
+{% import '_macros/image' as image %}
+{% import '_macros/date' as date %}
+{% import '_macros/link' as link %}
+{% import '_macros/svg' as svg %}
+
+
+{# Content #}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	{% include '_components/doc-start-assets' %}
+	{% include '_components/seo' %}
+	{# {% include '_components/app-icons' %} #}
+
+</head>
+
+<body class="text-ase">
+
+	{% include '_components/site--header' %}
+	
+	<div class="app-wrap">
+		<main role="main">
+			{% block content %}{% endblock %}
+		</main>
+		{% include '_components/site--footer' %}
+	</div>
+	
+	{% include '_components/doc-end-assets' %}
+</body>
+</html>
+{# Note:
+In Prod, with Minify plugin installed, wrap this template in these tags:
+{% minify %}{% endminify %}
+#}
